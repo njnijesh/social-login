@@ -13,15 +13,16 @@ const Home = () => {
   const navigate = useNavigate();
   const { logout } = useAuth0();
   const localUser = localStorage.getItem("user");
-  let user: any;
-  if (localUser) {
-    user = JSON.parse(localUser);
-  }
   useEffect(() => {
+    let user: any;
+    if (localUser) {
+      user = JSON.parse(localUser);
+    }
+    console.log(user);
     if (!user) {
       navigate("/login");
     }
-  }, [navigate, user]);
+  }, [navigate, localUser]);
   // Contexts and Hooks
   // const { user, setUser } = useContext(UserContext);
   // const { logout: logoutWithFacebook } = useFacebookLogin();
@@ -34,8 +35,8 @@ const Home = () => {
   };
   return (
     <Container>
-      <h3>Logged In as : {user?.name}</h3>
-      <p>Your email is {user?.email}</p>
+      {/* <h3 style={{ maxWidth: "60%", margin: "0 auto" }}>{localUser}</h3> */}
+      {/* <p>Your email is {user?.email}</p> */}
       <Button label="Logout" onClick={handleLogoutClick} classNames="logout" />
     </Container>
   );
