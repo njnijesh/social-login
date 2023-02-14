@@ -6,7 +6,7 @@ const useInstagramLogin = () => {
   // useEffect(()=> {
 
   // })
-  const login = async () => {
+  const login = () => {
     const authorizeUrl = `https://api.instagram.com/oauth/authorize
     ?client_id=701579268297786
     &redirect_uri=${window.location.origin}/login/callback/
