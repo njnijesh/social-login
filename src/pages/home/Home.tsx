@@ -16,6 +16,7 @@ const Home = () => {
   // to login and we will logout accordingly.
   const handleLogoutClick = () => {
     const loggedInBy = user.loggedInBy;
+    localStorage.removeItem("user");
     if (loggedInBy === "facebook") {
       logoutWithFacebook();
     }

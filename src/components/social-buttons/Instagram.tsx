@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import useInstagramLogin from "../../hooks/useInstgramLogin";
+// This handle the login with Instagram.
 import Button from "../button";
 import Icon from "../../icons/InstagramSvg";
+import useInstagramLogin from "../../hooks/useInstgramLogin";
+
 const Instagram = () => {
   const { login } = useInstagramLogin();
   return (

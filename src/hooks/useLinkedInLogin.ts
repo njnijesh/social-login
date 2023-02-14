@@ -1,15 +1,12 @@
 import qs from "qs";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
-// import { UserContext } from "../context/user/UserContextProvider";
+import { useEffect, useState } from "react";
 
 const useLinkedInLogin = () => {
-  const [userProfile, setUserProfile] = useState<any>(null);
+  // States
   const [accessToken, setAccessToken] = useState<string | null>(null);
-  //   const { user, setUser } = useContext(UserContext);
-  console.log(accessToken);
-  console.log(userProfile);
-  const clientId = "78p666byb6l9xk";
+
+  const clientId = process.env.REACT_APP_LINKEDIN_CLIENT_ID || "";
   const redirectUri = "http://localhost:3000/auth/linkedin/callback";
   const responseType = "code";
   const state = "myownstate";
@@ -48,7 +45,7 @@ const useLinkedInLogin = () => {
               console.log(response);
               const firstName = response.data.localizedFirstName;
               const lastName = response.data.localizedLastName;
-              setUserProfile({ firstName, lastName });
+              console.log({ firstName, lastName });
             })
             .catch((error) => {
               console.error(error);

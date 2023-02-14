@@ -6,7 +6,7 @@ export interface User {
 }
 export interface UserContextProps {
   user: User;
-  setUser: React.Dispatch<React.SetStateAction<User>>;
+  setUser: (userData: User) => void;
 }
 
 export interface Props {

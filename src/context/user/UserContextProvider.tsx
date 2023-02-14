@@ -17,10 +17,16 @@ export const UserContext = createContext<types.UserContextProps>({
 
 // Create provider
 export const UserProvider = ({ children }: types.Props) => {
-  const [user, setUser] = useState(initialUser);
+  const localStorageUser = localStorage.getItem("user");
+  const parsedUser = localStorageUser ? JSON.parse(localStorageUser) : null;
+  const [user, setUser] = useState(parsedUser || initialUser);
 
+  const setNPersistUser = (userData: types.User) => {
+    localStorage.setItem("user", JSON.stringify(userData));
+    setUser(userData);
+  };
   return (
-    <UserContext.Provider value={{ user, setUser }}>
+    <UserContext.Provider value={{ user, setUser: setNPersistUser }}>
       {children}
     </UserContext.Provider>
   );
