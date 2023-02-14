@@ -59,4 +59,11 @@ export const StyledButton = styled.button`
       );
     }
   }
+  &.linkedin {
+    background-color: #0077b5;
+    color: #fff;
+    &:hover {
+      background-color: #016499;
+    }
+  }
 `;
