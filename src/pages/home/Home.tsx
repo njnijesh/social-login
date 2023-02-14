@@ -1,18 +1,18 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Container } from "./styles";
 import Button from "../../components/button";
 import { useNavigate } from "react-router-dom";
 import { useAuth0 } from "@auth0/auth0-react";
 
 const Home = () => {
+  const [user, setUser] = useState<any>(null);
   const navigate = useNavigate();
   const { logout } = useAuth0();
   const localUser = localStorage.getItem("user");
 
   useEffect(() => {
-    let user: any;
     if (localUser) {
-      user = JSON.parse(localUser);
+      setUser(JSON.parse(localUser));
     }
     console.log(user);
     if (!user) {
@@ -28,7 +28,7 @@ const Home = () => {
   };
   return (
     <Container>
-      {/* <h3 style={{ maxWidth: "60%", margin: "0 auto" }}>{localUser}</h3> */}
+      <h3>Welcome, {user?.name}</h3>
       {/* <p>Your email is {user?.email}</p> */}
       <Button label="Logout" onClick={handleLogoutClick} classNames="logout" />
     </Container>
