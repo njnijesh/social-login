@@ -4,7 +4,6 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
-import { UserProvider } from "./context/user/UserContextProvider";
 import { Auth0Provider } from "@auth0/auth0-react";
 
 const root = ReactDOM.createRoot(
@@ -12,17 +11,15 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <UserProvider>
-      <Auth0Provider
-        domain="dev-v9m6ff3g.us.auth0.com"
-        clientId="r2Zkx16zu8a60MXeHajjK2cHyT6Lf8o3"
-        authorizationParams={{
-          redirect_uri: `${window.location.origin}/login/success`,
-        }}
-      >
-        <App />
-      </Auth0Provider>
-    </UserProvider>
+    <Auth0Provider
+      domain="dev-v9m6ff3g.us.auth0.com"
+      clientId="r2Zkx16zu8a60MXeHajjK2cHyT6Lf8o3"
+      authorizationParams={{
+        redirect_uri: `${window.location.origin}/login/success`,
+      }}
+    >
+      <App />
+    </Auth0Provider>
   </React.StrictMode>
 );
 
