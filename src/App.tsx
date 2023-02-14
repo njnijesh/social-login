@@ -14,7 +14,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/login/success" element={<LoginSuccess />} />
           <Route path="/logout" element={<Logout />} />
-          <Route path="/login/instagram" element={<InstagramLogin />} />
+          <Route path="/login/ins" element={<InstagramLogin />} />
         </Routes>
       </Router>
     </div>
