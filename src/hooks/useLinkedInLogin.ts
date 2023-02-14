@@ -49,6 +49,7 @@ const useLinkedInLogin = () => {
             })
             .catch((error) => {
               console.error(error);
+              window.location.href = "/";
             });
         })
         .catch((error) => {

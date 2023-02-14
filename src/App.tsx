@@ -1,15 +1,22 @@
-import { useContext } from "react";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/home";
 import Login from "./pages/login";
-import { UserContext } from "./context/user/UserContextProvider";
-
+import LoginSuccess from "./pages/login/LoginSucess";
+import Logout from "./pages/login/Logout";
 function App() {
-  // Get user from user context and render login page or home page accordingly
-  const { user } = useContext(UserContext);
-
-  return <div className="App">{!user.loggedInBy ? <Login /> : <Home />}</div>;
+  return (
+    <div className="App">
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/login/success" element={<LoginSuccess />} />
+          <Route path="/logout" element={<Logout />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;
