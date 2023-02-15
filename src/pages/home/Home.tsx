@@ -15,7 +15,7 @@ const Home = () => {
       setUser(JSON.parse(localUser));
     }
     console.log(user);
-    if (!user) {
+    if (!localUser) {
       navigate("/login");
     }
   }, [navigate, localUser]);
